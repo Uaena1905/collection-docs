@@ -1,0 +1,98 @@
+---
+title: "Pay-in product overview"
+sidebarTitle: "Pay-in overview"
+description: "UgameDeal Pay-in (Payment Collection) — a global collection solution"
+---
+
+UgameDeal Pay-in (Payment Collection) — a global collection solution
+
+## 1. What is pay-in (merchant view)
+
+UgameDeal Pay-in (Payment Collection): through the UD API, merchants offer users multiple local payment methods. Users pay via credit card, bank card, or e-wallet into the merchant account. Funds go directly into the merchant’s UD account without integrating each country’s payment channels yourself.
+
+- **Fund flow**: User bank card / local wallet → merchant UD account
+- **Payment scenarios**: Game top-up, store checkout, subscriptions, virtual goods
+- **Coverage**: 200+ countries and regions, 150+ local payment methods
+- **Integration**: HTTPS + IP allowlist + parameter signature (MD5 / RSA_SHA256)
+- **Mode**: Create order ＋ payment page redirect ＋ async callback ＋ order query ＋ refund request
+
+## 2. Typical scenarios (games / overseas business)
+
+| Scenario | Description | Traits |
+| --- | --- | --- |
+| In-game purchase / top-up | Players buy items, skins, currency, gift packs, and other virtual goods | High frequency, small amount, instant settlement |
+| Membership / VIP subscription | Players buy monthly, quarterly, or annual passes | Recurring, auto-renewal, long-term value |
+| Web Shop | Players buy merchandise or virtual goods on the official game store | Multiple categories, coupons, campaigns |
+| Event registration / tickets | Esports registration fees and online event tickets | Time-limited, quantity-limited, identity checks |
+| SaaS subscription | Paid game tools, analytics platforms, and other SaaS services | B2B customers, larger contract amounts, recurring |
+| Live tipping / gifts | Viewers send virtual gifts or tips to streamers | Small amount, high frequency, social |
+
+## 3. Supported payment methods
+
+UgameDeal supports mainstream global payment methods that match local user habits:
+
+### 💳 International cards
+
+Visa, MasterCard, American Express, JCB, Discover
+
+### 🌐 International e-wallets
+
+PayPal, Apple Pay, Google Pay, Samsung Pay
+
+### 🏦 Local bank transfer
+
+Local online banking and ATM transfers in each country
+
+### 📱 Asian e-wallets
+
+GrabPay, GCash, Dana, TrueMoney, ShopeePay
+
+### 🇪🇺 European methods
+
+SEPA, iDEAL, Sofort, Giropay, EPS
+
+### 🇰🇷 Korean methods
+
+KakaoPay, NaverPay, Toss, Korean cards
+
+### 🇧🇷 Latin American methods
+
+PIX, Boleto, OXXO, Mercado Pago
+
+### 🇷🇺 Russian methods
+
+Yandex Money, QIWI, WebMoney, MIR cards
+
+For more methods, see the [pay-in payment methods list](/en/payin/methods/global).
+
+## 4. How to use pay-in
+
+- **Onboarding**: Contact the UgameDeal business team to enable pay-in and submit merchant credentials
+- **Integration**: Connect via API, generate a payment link, and redirect the user to complete payment
+- **Security**: HTTPS encryption + IP allowlist + signature verification + PCI DSS compliance
+- **Settlement timing**: Funds credit the merchant account in real time after success; settlement cycle follows the contract (T+1, T+7, or monthly)
+- **Fees**: Percentage of transaction amount; rates vary by method — contact the business team for details
+- **Callbacks**: After success, the system sends an async callback to your server to sync order status
+- **Refunds**: Supported for some methods; see the refund API docs for rules
+
+## 5. Product advantages
+
+- **Global coverage**: 200+ countries and regions, 150+ local payment methods
+- **One integration**: Cover mainstream methods worldwide without integrating each channel separately
+- **Compliance and security**: Multi-country payment licenses, PCI DSS compliant, secure funds
+- **High success rate**: Smart routing and local acquiring, success rate up to 95%+
+- **Fast settlement**: T+1 settlement supported for faster cash flow
+- **Multi-currency**: 30+ settlement currencies with automatic FX conversion
+- **Support**: 24×7 technical support and multilingual customer service
+- **Transparent data**: Real-time views of transactions, success rate, and fees, with export support
+
+## Related docs
+
+For more technical details, see:
+
+- [Pay-in — Create order](/en/payin/api)
+- [Pay-in — Async callback](/en/payin/async-callback)
+- [Pay-in — Order query](/en/payin/order-query)
+- [Pay-in — Refund](/en/payin/refund)
+- [Pay-in methods — Global](/en/payin/methods/global)
+- [Config and signature](/en/config)

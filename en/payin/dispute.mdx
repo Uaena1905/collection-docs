@@ -1,0 +1,43 @@
+---
+title: "Chargeback callback"
+sidebarTitle: "Dispute notification"
+description: "Chargeback callback parameters and merchant response."
+---
+
+### Chargeback callback request parameters
+
+<div className="api-table-wrap">
+
+| Parameter | Required | Type | Max length | Description |
+| --- | --- | --- | --- | --- |
+| type | Yes | number | 1 | Result (`1` = chargeback created, `2` = chargeback defense, `3` = defense failed, `4` = defense succeeded) |
+| merchantOrderId | Yes | String | 128 | Merchant order ID |
+| ctime | Yes | int | 13 | Timestamp (seconds) |
+| payOrder | Yes | String | 64 | UD order ID |
+| sign | Yes | String |  | Signature rules: [see Config and signature](/en/config) |
+| msg | No | String | 200 | Chargeback reason |
+| appId | No | String | 200 | appId from the UD console |
+
+</div>
+
+### Callback response
+
+After receiving the UD chargeback callback, the merchant must return JSON:
+
+```json
+{
+    "status": "1",
+    "msg": "success"
+}
+```
+
+### Chargeback callback response codes
+
+<div className="api-table-wrap">
+
+| Parameter | Description |
+| --- | --- |
+| status | `1` means the merchant received the callback |
+| msg | Merchant message |
+
+</div>

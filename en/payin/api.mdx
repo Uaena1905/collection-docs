@@ -1,0 +1,64 @@
+---
+title: "API overview (integration)"
+sidebarTitle: "Create order"
+description: "Submit payment information to the UD platform and obtain a payment link."
+---
+
+<div className="api-endpoint">
+  <span className="api-method api-method-post">POST</span>
+  <code className="api-path">https://{"{test/production domain}"}/v2api/createpayorder.php</code>
+</div>
+
+### Create order
+
+<div className="api-table-wrap">
+
+| Request URL | Method | Authorization |
+| --- | --- | --- |
+| https://{"{test/production domain}"}/v2api/createpayorder.php | POST | Merchant submits payment information to UD and receives a payment link |
+
+</div>
+
+### Request parameters
+
+<div className="api-table-wrap">
+
+| Parameter | Required | Type | Max length | Description |
+| --- | --- | --- | --- | --- |
+| appId | Yes | String | 32 | appId from the UD console |
+| game_code | Yes | String | 128 | Merchant application name, provided by the merchant |
+| merchantOrder | Yes | String | 32 | Merchant order ID (must be unique) |
+| price | Yes | float | 10 | Amount in USD, 0.99–499.9 |
+| payCallbackUrl | Yes | String | 256 | Merchant payment callback URL |
+| redirectUrl | Yes | String | 256 | Payment redirect URL |
+| currencyCode | Yes | String | 12 | Payment currency (USD) |
+| payChannelDesc | Yes | String | 64 | Product description |
+| userId | Yes | String | 32 | Merchant user ID |
+| time | Yes | int | 13 | Timestamp (seconds) |
+| sign | Yes | String | 128 | Signature method and rule 5.5 |
+| payChannel | Yes | String | 32 | Payment method code |
+
+</div>
+
+### Response
+
+```json
+{
+    "status": "1",
+    "payUrl": "https://pay-gate.ugamedeal.com/pay.php?a=showPay&orderId=ZE5x3pDWE",
+    "msg": "下单成功",
+    "orderId": "88882023110913561097408"
+}
+```
+
+### Response fields
+
+<div className="api-table-wrap">
+
+| Field | Type | Max length | Description |
+| --- | --- | --- | --- |
+| status | int | 11 | `1` means authorization succeeded, `0` means failure |
+| orderId | String | 64 | UD order ID |
+| payUrl | String |  | Payment page URL (redirect the user to complete payment) |
+
+</div>

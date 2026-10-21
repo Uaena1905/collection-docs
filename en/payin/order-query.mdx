@@ -1,0 +1,55 @@
+---
+title: "Order result query"
+sidebarTitle: "Order query"
+description: "Query order payment details."
+---
+
+<div className="api-endpoint">
+  <span className="api-method api-method-post">POST</span>
+  <code className="api-path">https://{"{test/production domain}"}/v2api/checkorder.php</code>
+</div>
+
+<div className="api-table-wrap">
+
+| Request URL | Method | Description |
+| --- | --- | --- |
+| https://{"{test/production domain}"}/v2api/checkorder.php | POST | Query order payment details |
+
+</div>
+
+### Query request parameters
+
+<div className="api-table-wrap">
+
+| Parameter | Required | Type | Max length | Description |
+| --- | --- | --- | --- | --- |
+| appId | Yes | String | 32 | appId from the UD console |
+| orderId | Yes | String | 64 | UD order ID |
+| time | Yes | int |  | Timestamp |
+| sign | Yes | String |  | Signature rules: [see Config and signature](/en/config) |
+
+</div>
+
+### Query response
+
+```json
+{
+    "merchantOrderId": "1699513196",
+    "price": 1.99,
+    "isSuccess": 1, // 1表示订单成功，其他表示订单支付中
+    "currencyCode": "USD"
+    "payCode": "AL_CARD",// UD后台支付代码
+}
+```
+
+### Query response fields
+
+<div className="api-table-wrap">
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| isSuccess | number | Payment status (`1` = success, `0` = failed / payment in progress) |
+| merchantOrderId | String | Merchant order ID |
+| price | float | Amount |
+
+</div>

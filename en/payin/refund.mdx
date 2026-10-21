@@ -1,0 +1,51 @@
+---
+title: "Refund request"
+sidebarTitle: "Refund"
+description: "For normal merchant refunds only."
+---
+
+<div className="api-endpoint">
+  <span className="api-method api-method-post">POST</span>
+  <code className="api-path">https://{"{test/production domain}"}/v2api/checkrefund.php</code>
+</div>
+
+<div className="api-table-wrap">
+
+| Request URL | Method | Description |
+| --- | --- | --- |
+| https://{"{test/production domain}"}/v2api/checkrefund.php | POST | For normal merchant refunds only |
+
+</div>
+
+### Refund request parameters
+
+<div className="api-table-wrap">
+
+| Parameter | Required | Type | Max length | Description |
+| --- | --- | --- | --- | --- |
+| appId | Yes | String | 32 | appId assigned by the UD console |
+| orderId | Yes | String | 128 | UD order ID |
+| ctime | Yes | int | 13 | Timestamp (seconds) |
+| sign | Yes | String |  | Signature rules: [see Config and signature](/en/config) |
+
+</div>
+
+### Refund response
+
+```json
+{
+    "status": 1,
+    "msg": "退款成功"
+}
+```
+
+### Response fields
+
+<div className="api-table-wrap">
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| status | number | Result status (`1` = success; any other number = failure / refund unsuccessful) |
+| msg | String | Related error message |
+
+</div>

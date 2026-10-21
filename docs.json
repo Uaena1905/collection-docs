@@ -85,6 +85,46 @@
             ]
           }
         ]
+      },
+      {
+        "language": "en",
+        "pages": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "en/index",
+              "en/config"
+            ]
+          },
+          {
+            "group": "Pay-in APIs",
+            "pages": [
+              "en/payin/api",
+              "en/payin/async-callback",
+              "en/payin/order-query",
+              "en/payin/refund",
+              "en/payin/dispute"
+            ]
+          },
+          {
+            "group": "Pay-in methods",
+            "pages": [
+              "en/payin/methods/global",
+              "en/payin/methods/asia",
+              "en/payin/methods/europe",
+              "en/payin/methods/north-america",
+              "en/payin/methods/south-america",
+              "en/payin/methods/middle-east",
+              "en/payin/methods/russia"
+            ]
+          },
+          {
+            "group": "Product",
+            "pages": [
+              "en/payin/intro"
+            ]
+          }
+        ]
       }
     ],
     "global": {
