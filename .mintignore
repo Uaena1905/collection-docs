@@ -5,3 +5,7 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Local scrape artifacts (not published)
+_source_html/
+_source_text/

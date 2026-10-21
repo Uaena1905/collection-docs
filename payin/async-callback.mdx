@@ -1,0 +1,50 @@
+---
+title: "异步支付回调"
+sidebarTitle: "异步支付回调"
+description: "支付成功后，UD 平台将异步通知商户支付结果。"
+---
+
+### 支付回调请求参数
+
+<div className="api-table-wrap">
+
+| 参数名称 | 是否必传 | 类型 | 最大长度 | 描述 |
+| --- | --- | --- | --- | --- |
+| isSuccess | 是 | number | 1 | 付款结果 (1=成功，2=失败) |
+| merchantOrderId | 是 | String | 128 | 商户订单号 |
+| ctime | 是 | int | 13 | 时间戳(秒) |
+| payOrder | 是 | String | 64 | UD订单号 |
+| sign | 是 | String |  | 签名规则：[查看配置与签名文档](/config) |
+| currencyCode | 是 | String | 12 | 下单币种 |
+| price | 是 | String | 10 | 下单的金额 |
+| msg | 否 | String | 200 | 失败原因 |
+| appId | 否 | String | 200 | UD后台的appId |
+| payCode | 否 | String | 200 | 支付方式代码 |
+
+</div>
+
+### 支付回调返回结果
+
+商户收到UD的支付回调需要返回json数据：
+
+```json
+{
+    "status": "1",
+    "msg": "success"
+}
+```
+
+### 支付回调返回结果代码说明
+
+<div className="api-table-wrap">
+
+| 参数 | 描述 |
+| --- | --- |
+| status | 1 表示商户已经收到回调并且进去发货处理，其他表示发货失败（商户自己定义） |
+| msg | 商户的提示信息 |
+
+</div>
+
+### 支付重定向
+
+会根据商户提供重定向的Url里面添加 merchantOrderId（商户的订单号）重定向回去

@@ -1,0 +1,55 @@
+---
+title: "订单结果查询"
+sidebarTitle: "订单结果查询"
+description: "查询订单付款资料信息。"
+---
+
+<div className="api-endpoint">
+  <span className="api-method api-method-post">POST</span>
+  <code className="api-path">https://{"{测试/在线环境域名}"}/v2api/checkorder.php</code>
+</div>
+
+<div className="api-table-wrap">
+
+| 请求参数 | 请求方式 | 说明 |
+| --- | --- | --- |
+| https://{"{测试/在线环境域名}"}/v2api/checkorder.php | POST | 查询订单付款资料信息 |
+
+</div>
+
+### 订单查询请求参数
+
+<div className="api-table-wrap">
+
+| 参数名称 | 是否必传 | 类型 | 最大长度 | 描述 |
+| --- | --- | --- | --- | --- |
+| appId | 是 | String | 32 | UD后台的appId |
+| orderId | 是 | String | 64 | UD订单号 |
+| time | 是 | int |  | 时间戳 |
+| sign | 是 | String |  | 签名规则：[查看配置与签名文档](/config) |
+
+</div>
+
+### 查询响应结果
+
+```json
+{
+    "merchantOrderId": "1699513196",
+    "price": 1.99,
+    "isSuccess": 1, // 1表示订单成功，其他表示订单支付中
+    "currencyCode": "USD"
+    "payCode": "AL_CARD",// UD后台支付代码
+}
+```
+
+### 查询结果说明
+
+<div className="api-table-wrap">
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| isSuccess | number | 付款结果状态（1=成功，0=失败/订单支付中） |
+| merchantOrderId | String | 商户订单号 |
+| price | float | 金额 |
+
+</div>

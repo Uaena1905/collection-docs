@@ -1,0 +1,51 @@
+---
+title: "退单请求接口"
+sidebarTitle: "退单请求接口"
+description: "只用于商户正常的退款。"
+---
+
+<div className="api-endpoint">
+  <span className="api-method api-method-post">POST</span>
+  <code className="api-path">https://{"{测试/线上环境域名}"}/v2api/checkrefund.php</code>
+</div>
+
+<div className="api-table-wrap">
+
+| 请求参数 | 请求方式 | 说明 |
+| --- | --- | --- |
+| https://{"{测试/线上环境域名}"}/v2api/checkrefund.php | POST | 只用于商户正常的退款 |
+
+</div>
+
+### 退款请求参数
+
+<div className="api-table-wrap">
+
+| 参数名称 | 是否必传 | 类型 | 最大长度 | 描述 |
+| --- | --- | --- | --- | --- |
+| appId | 是 | String | 32 | UD后台分配的appId |
+| orderId | 是 | String | 128 | UD订单号 |
+| ctime | 是 | int | 13 | 时间戳(秒) |
+| sign | 是 | String |  | 签名规则：[查看配置与签名文档](/config) |
+
+</div>
+
+### 退款响应结果
+
+```json
+{
+    "status": 1,
+    "msg": "退款成功"
+}
+```
+
+### 查询结果说明
+
+<div className="api-table-wrap">
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| status | number | 付款结果状态（1=成功，其他数字=失败/退款不成功） |
+| msg | String | 相关错误信息 |
+
+</div>
